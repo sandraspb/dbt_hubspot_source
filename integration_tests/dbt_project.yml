@@ -10,135 +10,135 @@ models:
     +schema:
 
 vars:
-  hubspot_schema: hubspot_source_integration_tests
+  hubspot_schema: hubspot
   hubspot_source:
     hubspot_service_enabled:    true
-    hubspot_company_property_history_identifier:   "company_property_history_data"
-    hubspot_company_identifier:                    "company_data"
-    hubspot_contact_identifier:                    "contact_data"
-    hubspot_contact_merge_audit_identifier:        "contact_merge_audit_data"
-    hubspot_contact_list_member_identifier:        "contact_list_member_data"
-    hubspot_contact_property_history_identifier:   "contact_property_history_data"
-    hubspot_deal_identifier:                       "deal_data"
-    hubspot_deal_stage_identifier:                 "deal_stage_data"
-    hubspot_deal_company_identifier:               "deal_company_data"
-    hubspot_deal_contact_identifier:               "deal_contact_data"
-    hubspot_deal_pipeline_identifier:              "deal_pipeline_data"
-    hubspot_deal_pipeline_stage_identifier:        "deal_pipeline_stage_data"
-    hubspot_deal_property_history_identifier:      "deal_property_history_data"
-    hubspot_email_campaign_identifier:             "email_campaign_data"
-    hubspot_email_event_identifier:                "email_event_data"
-    hubspot_email_event_bounce_identifier:         "email_event_bounce_data"
-    hubspot_email_event_click_identifier:          "email_event_click_data"
-    hubspot_email_event_deferred_identifier:       "email_event_deferred_data"
-    hubspot_email_event_delivered_identifier:      "email_event_delivered_data"
-    hubspot_email_event_forward_identifier:        "email_event_forward_data"
-    hubspot_email_event_open_identifier:           "email_event_open_data"
-    hubspot_email_event_print_identifier:          "email_event_print_data"
-    hubspot_email_event_spam_report_identifier:    "email_event_spam_report_data"
-    hubspot_email_event_status_change_identifier:  "email_event_status_change_data"
-    hubspot_engagement_identifier:                 "engagement_data"
-    hubspot_engagement_call_identifier:            "engagement_call_data"
-    hubspot_engagement_company_identifier:         "engagement_company_data"
-    hubspot_engagement_contact_identifier:         "engagement_contact_data"
-    hubspot_engagement_deal_identifier:            "engagement_deal_data"
-    hubspot_engagement_email_identifier:           "engagement_email_data"
-    hubspot_engagement_meeting_identifier:         "engagement_meeting_data"
-    hubspot_engagement_note_identifier:            "engagement_note_data"
-    hubspot_engagement_task_identifier:            "engagement_task_data"
-    hubspot_owner_identifier:                      "owner_data"
-    hubspot_ticket_company_identifier:             "ticket_company_data"
-    hubspot_ticket_contact_identifier:             "ticket_contact_data"
-    hubspot_ticket_deal_identifier:                "ticket_deal_data"
-    hubspot_ticket_engagement_identifier:          "ticket_engagement_data"
-    hubspot_ticket_pipeline_identifier:            "ticket_pipeline_data"
-    hubspot_ticket_pipeline_stage_identifier:      "ticket_pipeline_stage_data"
-    hubspot_ticket_property_history_identifier:    "ticket_property_history_data"
-    hubspot_ticket_identifier:                     "ticket_data"
-    contact_list:                                  "{{ fivetran_utils.seed_data_helper('contact_list_data', ['postgres']) }}"
-    email_event_sent:                              "{{ fivetran_utils.seed_data_helper('email_event_sent_data', ['snowflake','postgres']) }}"
-    email_event_dropped:                           "{{ fivetran_utils.seed_data_helper('email_event_dropped_data', ['snowflake','postgres']) }}"
+    hubspot_company_property_history_identifier:   "company_property_history"
+    hubspot_company_identifier:                    "company"
+    hubspot_contact_identifier:                    "contact"
+    hubspot_contact_merge_audit_identifier:        "contact_merge_audit"
+    hubspot_contact_list_member_identifier:        "contact_list_member"
+    hubspot_contact_property_history_identifier:   "contact_property_history"
+    hubspot_deal_identifier:                       "deal"
+    hubspot_deal_stage_identifier:                 "deal_stage"
+    hubspot_deal_company_identifier:               "deal_company"
+    hubspot_deal_contact_identifier:               "deal_contact"
+    hubspot_deal_pipeline_identifier:              "deal_pipeline"
+    hubspot_deal_pipeline_stage_identifier:        "deal_pipeline_stage"
+    hubspot_deal_property_history_identifier:      "deal_property_history"
+    hubspot_email_campaign_identifier:             "email_campaign"
+    hubspot_email_event_identifier:                "email_event"
+    hubspot_email_event_bounce_identifier:         "email_event_bounce"
+    hubspot_email_event_click_identifier:          "email_event_click"
+    hubspot_email_event_deferred_identifier:       "email_event_deferred"
+    hubspot_email_event_delivered_identifier:      "email_event_delivered"
+    hubspot_email_event_forward_identifier:        "email_event_forward"
+    hubspot_email_event_open_identifier:           "email_event_open"
+    hubspot_email_event_print_identifier:          "email_event_print"
+    hubspot_email_event_spam_report_identifier:    "email_event_spam_report"
+    hubspot_email_event_status_change_identifier:  "email_event_status_change"
+    hubspot_engagement_identifier:                 "engagement"
+    hubspot_engagement_call_identifier:            "engagement_call"
+    hubspot_engagement_company_identifier:         "engagement_company"
+    hubspot_engagement_contact_identifier:         "engagement_contact"
+    hubspot_engagement_deal_identifier:            "engagement_deal"
+    hubspot_engagement_email_identifier:           "engagement_email"
+    hubspot_engagement_meeting_identifier:         "engagement_meeting"
+    hubspot_engagement_note_identifier:            "engagement_note"
+    hubspot_engagement_task_identifier:            "engagement_task"
+    hubspot_owner_identifier:                      "owner"
+    hubspot_ticket_company_identifier:             "ticket_company"
+    hubspot_ticket_contact_identifier:             "ticket_contact"
+    hubspot_ticket_deal_identifier:                "ticket_deal"
+    hubspot_ticket_engagement_identifier:          "ticket_engagement"
+    hubspot_ticket_pipeline_identifier:            "ticket_pipeline"
+    hubspot_ticket_pipeline_stage_identifier:      "ticket_pipeline_stage"
+    hubspot_ticket_property_history_identifier:    "ticket_property_history"
+    hubspot_ticket_identifier:                     "ticket"
+    contact_list:                                  "{{ fivetran_utils.seed_helper('contact_list', ['postgres']) }}"
+    email_event_sent:                              "{{ fivetran_utils.seed_helper('email_event_sent', ['snowflake','postgres']) }}"
+    email_event_dropped:                           "{{ fivetran_utils.seed_helper('email_event_dropped', ['snowflake','postgres']) }}"
 
 seeds:
   hubspot_source_integration_tests:
     +quote_columns: "{{ true if target.type == 'redshift' else false }}"
-    owner_data:
+    owner:
       +column_types:
         owner_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
-    company_data:
+    company:
       +column_types:
         id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
-    deal_data:
+    deal:
       +column_types:
         deal_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
         owner_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
-    deal_contact_data:
+    deal_contact:
       +column_types:
         contact_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
         deal_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
-    deal_stage_data:
+    deal_stage:
       +column_types:
         deal_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
-    company_property_history_data:
+    company_property_history:
       +column_types:
         company_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
-    email_campaign_data:
+    email_campaign:
       +column_types:
         id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
         content_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
-    deal_property_history_data:
+    deal_property_history:
       +column_types:
         deal_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
-    engagement_call_data:
+    engagement_call:
       +column_types:
         engagement_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
-    engagement_company_data:
+    engagement_company:
       +column_types:
         engagement_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
         company_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
-    engagement_contact_data:
+    engagement_contact:
       +column_types:
         engagement_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
         contact_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
-    engagement_deal_data:
+    engagement_deal:
       +column_types:
         engagement_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
         deal_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
-    engagement_data:
+    engagement:
       +column_types:
         id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
-    engagement_meeting_data:
+    engagement_meeting:
       +column_types:
         engagement_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
-    engagement_email_data:
+    engagement_email:
       +column_types:
         engagement_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
-    engagement_task_data:
+    engagement_task:
       +column_types:
         engagement_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
         completion_date: "{{ 'varchar(100)'  if target.type in ('redshift','postgres') else 'string'}}"
-    engagement_note_data:
+    engagement_note:
       +column_types:
         engagement_id: "{{ 'int64' if target.name == 'bigquery' else 'bigint' }}"
-    deal_pipeline_data:
+    deal_pipeline:
       +column_types:
         pipeline_id: "{{ 'varchar(100)'  if target.type in ('redshift','postgres') else 'string'}}"
-    deal_pipeline_stage_data:
+    deal_pipeline_stage:
       +column_types:
         stage_id: "{{ 'varchar(100)'  if target.type in ('redshift','postgres') else 'string'}}"
-    email_event_sent_data_snowflake:
+    email_event_sent_snowflake:
       +enabled: "{{ true if target.type == 'snowflake' else false }}"    
-    email_event_sent_data_postgres:
+    email_event_sent_postgres:
       +enabled: "{{ true if target.type == 'postgres' else false }}" 
-    email_event_sent_data:
+    email_event_sent:
       +enabled: "{{ true if target.type not in ('snowflake', 'postgres') else false }}"
-    email_event_dropped_data_snowflake:
+    email_event_dropped_snowflake:
       +enabled: "{{ true if target.type == 'snowflake' else false }}"    
-    email_event_dropped_data_postgres:
+    email_event_dropped_postgres:
       +enabled: "{{ true if target.type == 'postgres' else false }}" 
-    email_event_dropped_data:
+    email_event_dropped:
       +enabled: "{{ true if target.type not in ('snowflake', 'postgres') else false }}"
-    contact_list_data:
+    contact_list:
       +enabled: "{{ true if target.type != 'postgres' else false }}"
-    contact_list_data_postgres:
+    contact_list_postgres:
       +enabled: "{{ true if target.type == 'postgres' else false }}" 
